@@ -1,0 +1,10 @@
+.Current h1 {
+  font-size: 26px;
+  font-weight: lighter;
+  margin-bottom: 0;
+}
+.Current h2 {
+  font-size: 18px;
+  font-weight: lighter;
+  line-height: normal;
+}

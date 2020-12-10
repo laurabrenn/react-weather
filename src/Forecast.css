@@ -1,0 +1,24 @@
+.Forecast {
+  text-align: center;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+.Forecast img,
+#image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+.Forecast p {
+  margin: 0;
+}
+.Forecast .forecast-day {
+  padding: 0;
+  transition: all 200ms ease;
+}
+.Forecast .forecast-day:hover {
+  background-color: #ffd9ce;
+  border-radius: 5px;
+}
