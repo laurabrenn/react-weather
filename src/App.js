@@ -11,11 +11,13 @@ import "./App.css";
 export default function App() {
   return (
     <div className="App">
+      <div className="container">
       <Search />
       <Current />
       <Today />
       <Forecast />
       <CodedBy />
+      </div>
     </div>
   );
 }
