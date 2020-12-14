@@ -3,6 +3,8 @@ import "./Search.css";
 
 export default function Search() {
   return (
+      <div className="Search">
+
     <form>
       <div className="input-group mb-3">
         <input
@@ -27,5 +29,7 @@ export default function Search() {
         />
       </div>
     </form>
+      </div>
+
   );
 }

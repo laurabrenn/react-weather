@@ -2,5 +2,9 @@
   max-width: 500px;
   margin: 30px auto;
   background-color: #fdfdfd;
+  border: 1px solid rgb(182, 180, 180);
+  border-radius: 10px;
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   font-weight: lighter;
 }

@@ -3,7 +3,16 @@ import "./Today.css";
 
 export default function Today() {
   return (
-    <div className="Today row ml-2">
+    <div className="Today">
+    <div className="row ml-2">
+        <h1>
+          Current weather in <span className="city"> </span>:
+        </h1>
+      </div>
+      <div className="row ml-2">
+        <h2>Cloudy</h2>
+      </div>
+    <div className="row ml-2">
       <div className="col-3 large-icon-container">
         <img
           id="image"
@@ -40,5 +49,7 @@ export default function Today() {
         </p>
       </div>
     </div>
+    </div>
+
   );
 }

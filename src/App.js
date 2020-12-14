@@ -1,7 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from "./Search";
-import Current from "./Current";
 import Today from "./Today";
 import Forecast from "./Forecast";
 import CodedBy from "./CodedBy";
@@ -13,7 +12,6 @@ export default function App() {
     <div className="App">
       <div className="container">
       <Search />
-      <Current />
       <Today />
       <Forecast />
       <CodedBy />
