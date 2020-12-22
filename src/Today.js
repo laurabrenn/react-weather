@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios"
+import FormatDate from "./FormatDate"
 import "./Today.css";
 
 export default function Today(props) {
@@ -10,7 +11,7 @@ export default function Today(props) {
         ready: true,
         name: response.data.name,
         description: response.data.weather[0].description,
-        date: "Sunday October 4th",
+        date: new Date(response.data.dt*1000),
         time: "7.03pm",
         temp: Math.round(response.data.main.temp),
         low: Math.round(response.data.main.temp_min),
@@ -41,8 +42,7 @@ export default function Today(props) {
         />
       </div>
       <div className="col-5 info">
-        <p className="date">{weatherData.date}</p>
-        <p className="time">{weatherData.time}</p>
+        <FormatDate date={weatherData.date} />
         <p className="temp-today">{weatherData.temp}°</p>
         <p>
           low <span className="temp-high-low-today"> {weatherData.low}° / {weatherData.high}°</span> high
