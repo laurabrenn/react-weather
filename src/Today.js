@@ -41,9 +41,9 @@ export default function Today(props) {
         />
       </div>
       <div className="col-5 info">
-    <p className="date">{weatherData.date}</p>
+        <p className="date">{weatherData.date}</p>
         <p className="time">{weatherData.time}</p>
-    <p className="temp-today">{weatherData.temp}°</p>
+        <p className="temp-today">{weatherData.temp}°</p>
         <p>
           low <span className="temp-high-low-today"> {weatherData.low}° / {weatherData.high}°</span> high
         </p>
