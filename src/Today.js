@@ -1,5 +1,6 @@
 import React from "react";
 import FormatDate from "./FormatDate"
+import WeatherIcon from "./WeatherIcon"
 import "./Today.css";
 
 export default function Today(props) {
@@ -15,11 +16,7 @@ export default function Today(props) {
         </div>
         <div className="row ml-2">
           <div className="col-3 large-icon-container">
-            <img
-              id="image"
-              src="https://openweathermap.org/img/wn/10d@2x.png"
-              alt="cloud"
-            />
+            <WeatherIcon code={props.data.icon} alt={props.data.description} />
           </div>
         <div className="col-5 info">
           <FormatDate date={props.data.date} />

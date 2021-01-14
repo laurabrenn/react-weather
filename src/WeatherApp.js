@@ -21,6 +21,7 @@ export default function WeatherApp(props) {
         feelsLike: Math.round(response.data.main.feels_like),
         humidity: response.data.main.humidity,
         windSpeed: response.data.wind.speed,
+        icon: response.data.weather[0].icon
     })  
   }
   function search() {
