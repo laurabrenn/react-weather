@@ -1,10 +1,9 @@
 import React from "react";
-import "./Search.css";
+import "./WeatherApp.css";
 
-export default function Search() {
+export default function WeatherApp() {
   return (
-      <div className="Search">
-
+    <div className="WeatherApp">
     <form>
       <div className="input-group mb-3">
         <input
@@ -29,7 +28,6 @@ export default function Search() {
         />
       </div>
     </form>
-      </div>
-
+    </div>
   );
 }
