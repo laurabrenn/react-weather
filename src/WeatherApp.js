@@ -67,7 +67,7 @@ export default function WeatherApp(props) {
           </div>
         </form>
         <Today data={weatherData}/>
-        <Forecast />
+        <Forecast city={weatherData.name}/>
       </div>
     );
   } else {

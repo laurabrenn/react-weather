@@ -22,3 +22,9 @@
   background-color: #ffd9ce;
   border-radius: 5px;
 }
+
+.Forecast canvas {
+  display: block;
+  max-width: 20px;
+  margin: 0 auto;
+}
