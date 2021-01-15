@@ -11,3 +11,7 @@
   font-family: monospace;
   margin: 0;
 }
+
+.App .WeatherApp {
+  margin-top: 15px;
+}
