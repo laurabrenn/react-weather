@@ -15,7 +15,7 @@ export default function App() {
       </div>
       <footer className="p-3 CodedBy">
       <a
-        href="https://github.com/laurabrenn/react-week4"
+        href="https://github.com/laurabrenn/react-weather"
         target="_blank"
         rel="noreferrer"
       >

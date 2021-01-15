@@ -14,11 +14,13 @@
 .Forecast p {
   margin: 0;
 }
-.Forecast .forecast-day {
-  padding: 0;
+.forecast-day {
+  padding-top: 5px;
+  padding-bottom: 5px;
+
   transition: all 200ms ease;
 }
-.Forecast .forecast-day:hover {
+.forecast-day:hover {
   background-color: #ffd9ce;
   border-radius: 5px;
 }
