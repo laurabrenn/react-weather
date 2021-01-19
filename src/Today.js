@@ -1,23 +1,22 @@
-import React, {useState} from "react";
+import React from "react";
 import FormatDate from "./FormatDate"
 import WeatherIcon from "./WeatherIcon"
 import "./Today.css";
 
 export default function Today(props) {
-  const [unit, setUnit] = useState("celcius")
+
   function convertToF(event) {
     event.preventDefault()
-    setUnit("fahrenheit")
+    props.setUnit("fahrenheit");
   }
   function convertToC(event) {
     event.preventDefault()
-    setUnit("celcius")
+    props.setUnit("celcius")
   }
   function fahrenheit(value) {
-    
     return Math.round((value * 9/5)+32)
   }
-  if (unit==="celcius") {
+  if (props.unit==="celcius") {
     return (
       <div className="Today">
         <div className="row ml-2">
