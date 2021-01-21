@@ -11,14 +11,18 @@ export default function ForecastDay(props) {
   const [forecastDay, setForecastDay] = useState(null)
 
   function handleForecastDayResponse(response) {
-    setForecastDay(response)
+    setForecastDay(response.data)
     setLoaded(true)
   }
-  if (loaded) {
+  if (loaded && props.lat === forecastDay.lat) {
     return (
       <div>
 
       <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[0]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[1]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[2]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[3]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[4]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
       
       </div>
     )
@@ -29,4 +33,4 @@ export default function ForecastDay(props) {
     return "loading..."
   }
 }
-//&& props.lat === forecastDay.lat
+//

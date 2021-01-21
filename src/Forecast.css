@@ -14,14 +14,21 @@
 .Forecast p {
   margin: 0;
 }
-.forecast-day {
+.forecast-box {
   padding-top: 5px;
   padding-bottom: 5px;
+  margin: 2px;
+  border-radius: 5px;
+  background: #e4f4fc;
 
   transition: all 200ms ease;
 }
-.forecast-day:hover {
-  background-color: #ffd9ce;
+.forecast-box:hover {
+  background: linear-gradient(
+    150deg,
+    rgba(200, 241, 221, 1) 17%,
+    rgba(182, 226, 246, 1) 49%
+  );
   border-radius: 5px;
 }
 

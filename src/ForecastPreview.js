@@ -14,18 +14,18 @@ export default function ForecastPreview(props) {
     }
     function tempF() {
         let tempF = Math.round((props.data.main.temp)*9/5+32)
-        return `${tempF}°C`
+        return `${tempF}°F`
     }
     if (props.unit==="celcius") {
     return(
-        <div className="forecast-day col">
+        <div className="forecast-box col">
         {hours()}
         <WeatherIcon code={props.data.weather[0].icon} />
         {temp()}
         </div>
     )   
     } else {
-    return (   <div className="forecast-day col">
+    return (   <div className="forecast-box col">
         {hours()}
         <WeatherIcon code={props.data.weather[0].icon} />
         {tempF()}

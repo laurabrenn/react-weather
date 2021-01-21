@@ -15,3 +15,13 @@
 .App .WeatherApp {
   margin-top: 15px;
 }
+
+.App .WeatherApp .days {
+  padding-right: 0;
+}
+
+.App .WeatherApp .btn-location {
+  color: #fff;
+  background-color: #44b3e9;
+  border-color: #44b3e9;
+}

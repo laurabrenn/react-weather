@@ -75,7 +75,7 @@ export default function WeatherApp(props) {
               value="Search"
             />
             <input
-              className="btn btn-success ml-2"
+              className="btn btn-location ml-2"
               type="button"
               id="location-button"
               value="My location"
@@ -84,7 +84,7 @@ export default function WeatherApp(props) {
           </div>
         </form>
         <div className="row">
-          <div className="col-2">
+          <div className="days col-2">
             <ForecastDay lat={weatherData.lat} lon={weatherData.lon} unit={unit}/>
           </div>
           <div className="col-10">
