@@ -18,11 +18,11 @@ export default function ForecastDay(props) {
     return (
       <div>
 
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[0]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[1]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[2]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[3]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[4]} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[0]} number={0} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[1]} number={1} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[2]} number={2} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[3]} number={3} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[4]} number={4} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
       
       </div>
     )

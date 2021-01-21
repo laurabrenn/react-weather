@@ -1,6 +1,10 @@
 import React from "react";
 
 export default function ForecastDayPreview(props) {
+    function buttonResponse(event) {
+        event.preventDefault()
+        props.setDayIndex(props.number)
+    }
 
     function day() {
         let date = new Date((props.data.dt+props.timezone) *1000 )
@@ -18,18 +22,18 @@ export default function ForecastDayPreview(props) {
     }
     if (props.unit==="celcius") {
     return(
-        <div className="forecast-box col">
+        <button className="forecast-box col"onClick={buttonResponse}>
         {day()}
         <br />
         {temp()}
-        </div>
+        </button>
     )   
     } else {
-    return (   <div className="forecast-box col">
+    return (   <button className="forecast-box col" onClick={buttonResponse}>
         {day()}
         <br />
         {tempF()}
-        </div>
+        </button>
     )
     }
 }

@@ -2,11 +2,13 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon"
 
 
-export default function ForecastPreview(props) {
+export default function ForecastHourPreview(props) {
     function hours() {
         let date = new Date((props.data.dt+props.timezone) *1000 )
         let hours = date.getHours()
-        return `${hours}:00`
+        let weekdays = ["Sun", "Mon","Tue", "Wed","Thu", "Fri", "Sat"]
+        let day = weekdays[date.getDay()]
+        return `${day}, ${hours}:00`
     }
     function temp() {
         let temp = Math.round(props.data.main.temp)

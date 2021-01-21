@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Forecast.css";
 import axios from "axios"
-import ForecastPreview from "./ForecastPreview";
+import ForecastHourPreview from "./ForecastHourPreview";
 
 
 
@@ -17,12 +17,11 @@ export default function ForecastHour(props) {
   if (loaded && props.city === forecast.city.name) {
     return (
       <div className="Forecast row">
-       <ForecastPreview data={forecast.list[0]} unit={props.unit} timezone={forecast.city.timezone}/>
-       <ForecastPreview data={forecast.list[1]} unit={props.unit} timezone={forecast.city.timezone}/>
-       <ForecastPreview data={forecast.list[2]} unit={props.unit} timezone={forecast.city.timezone}/>
-       <ForecastPreview data={forecast.list[3]} unit={props.unit} timezone={forecast.city.timezone}/>
-       <ForecastPreview data={forecast.list[4]} unit={props.unit} timezone={forecast.city.timezone}/>
-       <ForecastPreview data={forecast.list[5]} unit={props.unit} timezone={forecast.city.timezone}/>
+       <ForecastHourPreview data={forecast.list[(0+props.dayIndex*8)]} unit={props.unit} timezone={forecast.city.timezone}/>
+       <ForecastHourPreview data={forecast.list[(1+props.dayIndex*8)]} unit={props.unit} timezone={forecast.city.timezone}/>
+       <ForecastHourPreview data={forecast.list[(2+props.dayIndex*8)]} unit={props.unit} timezone={forecast.city.timezone}/>
+       <ForecastHourPreview data={forecast.list[(3+props.dayIndex*8)]} unit={props.unit} timezone={forecast.city.timezone}/>
+       <ForecastHourPreview data={forecast.list[(4+props.dayIndex*8)]} unit={props.unit} timezone={forecast.city.timezone}/>
 
 
       </div>
