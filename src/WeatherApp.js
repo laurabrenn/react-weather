@@ -9,6 +9,7 @@ export default function WeatherApp(props) {
   const [city, setCity] = useState(props.defaultCity)
   const [unit, setUnit] = useState("celcius")
   const [dayIndex, setDayIndex] = useState(0)
+  const [forecastDay, setForecastDay] = useState(null)
 
 
   
@@ -87,10 +88,10 @@ export default function WeatherApp(props) {
         </form>
         <div className="row">
           <div className="days col-2">
-            <ForecastDay lat={weatherData.lat} lon={weatherData.lon} unit={unit} dayIndex={dayIndex} setDayIndex={setDayIndex}/>
+            <ForecastDay lat={weatherData.lat} lon={weatherData.lon} unit={unit} dayIndex={dayIndex} setDayIndex={setDayIndex} forecastDay={forecastDay} setForecastDay={setForecastDay}/>
           </div>
           <div className="col-10">
-            <Today data={weatherData} unit={unit} setUnit={setUnit}/>
+            <Today data={weatherData} unit={unit} setUnit={setUnit} dayIndex={dayIndex} forecastDay={forecastDay} />
             <ForecastHour city={weatherData.name} unit={unit} dayIndex={dayIndex}/>
           </div>
         </div>

@@ -8,21 +8,21 @@ import ForecastDayPreview from "./ForecastDayPreview";
 
 export default function ForecastDay(props) {
   const [loaded, setLoaded] = useState(false)
-  const [forecastDay, setForecastDay] = useState(null)
+  
 
   function handleForecastDayResponse(response) {
-    setForecastDay(response.data)
+    props.setForecastDay(response.data)
     setLoaded(true)
   }
-  if (loaded && props.lat === forecastDay.lat) {
+  if (loaded && props.lat === props.forecastDay.lat) {
     return (
       <div>
 
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[0]} number={0} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[1]} number={1} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[2]} number={2} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[3]} number={3} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
-      <div className="Forecast row"><ForecastDayPreview data={forecastDay.daily[4]} number={4} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={props.forecastDay.daily[0]} number={0} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={props.forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={props.forecastDay.daily[1]} number={1} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={props.forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={props.forecastDay.daily[2]} number={2} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={props.forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={props.forecastDay.daily[3]} number={3} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={props.forecastDay.timezone_offset} /></div>
+      <div className="Forecast row"><ForecastDayPreview data={props.forecastDay.daily[4]} number={4} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} unit={props.unit} timezone={props.forecastDay.timezone_offset} /></div>
       
       </div>
     )
