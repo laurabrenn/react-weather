@@ -86,10 +86,81 @@ export default function Today(props) {
       )
     }
   } else {
+    if (props.unit==="celcius") {
     return(
       <div>
-        <p>
-          date: {props.forecastDay.daily[props.dayIndex].dt}
+        <div className="Today">
+          <div className="row ml-2">
+            <h1>
+              Forecasted weather in {props.data.name}:
+            </h1>
+          </div>
+          <div className="row ml-2">
+            <h2 className="text-capitalize">{props.forecastDay.daily[props.dayIndex].weather[0].description}</h2>
+          </div>
+          <div className="row ml-2">
+            <div className="col-3 large-icon-container">
+              <WeatherIcon code={props.forecastDay.daily[props.dayIndex].weather[0].icon} alt={props.forecastDay.daily[props.dayIndex].weather[0].description} />
+            </div>
+          <div className="col-5 info">
+           <FormatDate date={new Date((props.forecastDay.daily[props.dayIndex].dt +props.forecastDay.timezone_offset) *1000 )} />
+            <p className="temp-today">{Math.round(props.forecastDay.daily[props.dayIndex].temp.day)}°</p>
+            <p>low <span className="temp-high-low-today"> {Math.round(props.forecastDay.daily[props.dayIndex].temp.min)}° / {Math.round(props.forecastDay.daily[props.dayIndex].temp.max)}°</span> high</p>
+          </div>
+          <div className="col-4 pr-3 percentages">
+            <p>
+              °C 
+              |
+              <a href="/" id="fahrenheit" onClick={convertToF}>°F</a>
+            </p>
+            <p>Feels like:  {Math.round(props.forecastDay.daily[props.dayIndex].feels_like.day)}° </p>
+            <p>Humidity: {props.forecastDay.daily[props.dayIndex].humidity}%</p>
+            <p>Wind speed: {props.forecastDay.daily[props.dayIndex].wind_speed} m/s</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    )
+    } else {
+      return (
+       <div>
+        <div className="Today">
+          <div className="row ml-2">
+            <h1>
+              Forecasted weather in {props.data.name}:
+            </h1>
+          </div>
+          <div className="row ml-2">
+            <h2 className="text-capitalize">{props.forecastDay.daily[props.dayIndex].weather[0].description}</h2>
+          </div>
+          <div className="row ml-2">
+            <div className="col-3 large-icon-container">
+              <WeatherIcon code={props.forecastDay.daily[props.dayIndex].weather[0].icon} alt={props.forecastDay.daily[props.dayIndex].weather[0].description} />
+            </div>
+          <div className="col-5 info">
+           <FormatDate date={new Date((props.forecastDay.daily[props.dayIndex].dt +props.forecastDay.timezone_offset) *1000 )} />
+            <p className="temp-today">{fahrenheit(Math.round(props.forecastDay.daily[props.dayIndex].temp.day))}°</p>
+            <p>low <span className="temp-high-low-today"> {fahrenheit(Math.round(props.forecastDay.daily[props.dayIndex].temp.min))}° / {fahrenheit(Math.round(props.forecastDay.daily[props.dayIndex].temp.max))}°</span> high</p>
+          </div>
+          <div className="col-4 pr-3 percentages">
+             <p>
+              <a href="/" id="celcius" onClick={convertToC}>°C</a>{" "}
+              |
+              °F
+            </p>
+            <p>Feels like:  {fahrenheit(Math.round(props.forecastDay.daily[props.dayIndex].feels_like.day))}° </p>
+            <p>Humidity: {props.forecastDay.daily[props.dayIndex].humidity}%</p>
+            <p>Wind speed: {props.forecastDay.daily[props.dayIndex].wind_speed} m/s</p>
+          </div>
+        </div>
+        </div>
+      </div>
+      )
+    }
+}
+}
+/* <FormatDate date={((props.forecastDay.daily[props.dayIndex].dt)+(props.forecastDay.timezone_offset))*1000} />
+date: {props.forecastDay.daily[props.dayIndex].dt}
           temp: {props.forecastDay.daily[props.dayIndex].temp.day}
           low: {props.forecastDay.daily[props.dayIndex].temp.min}
           high: {props.forecastDay.daily[props.dayIndex].temp.max}
@@ -99,45 +170,5 @@ export default function Today(props) {
           icon: {props.forecastDay.daily[props.dayIndex].weather[0].icon}
           description: {props.forecastDay.daily[props.dayIndex].weather[0].description}
           time: {(props.forecastDay.daily[props.dayIndex].dt+props.forecastDay.timezone_offset)*1000}
+          */
           
-        </p>
-        <div className="Today">
-          <div className="row ml-2">
-            <h1>
-              Forecasted weather in {props.data.name}:
-            </h1>
-          </div>
-          <div className="row ml-2">
-            <h2 className="text-capitalize">{props.forecastDay.daily[props.dayIndex].weather.description}</h2>
-          </div>
-          <div className="row ml-2">
-            <div className="col-3 large-icon-container">
-              <WeatherIcon code={props.forecastDay.daily[props.dayIndex].weather.icon} alt={props.forecastDay.daily[props.dayIndex].weather.description} />
-            </div>
-          <div className="col-5 info">
-           <FormatDate date={((props.forecastDay.daily[props.dayIndex].dt)+(props.forecastDay.timezone_offset))*1000} />
-            <p className="temp-today">{props.forecastDay.daily[props.dayIndex].temp.day}°</p>
-            <p>low <span className="temp-high-low-today"> {props.forecastDay.daily[props.dayIndex].temp.min}° / {props.forecastDay.daily[props.dayIndex].temp.max}°</span> high</p>
-          </div>
-          <div className="col-4 pr-3 percentages">
-            <p>
-              °C 
-              |
-              <a href="/" id="fahrenheit" onClick={convertToF}>°F</a>
-            </p>
-            <p>Feels like:  {props.forecastDay.daily[props.dayIndex].feels_like.day}° </p>
-            <p>Humidity: {props.forecastDay.daily[props.dayIndex].humidity}%</p>
-            <p>Wind speed: {props.forecastDay.daily[props.dayIndex].wind_speed} m/s</p>
-          </div>
-        </div>
-        </div>
-
-
-
-
-       
-      </div>
-    )
-  }
-}
-// <FormatDate date={((props.forecastDay.daily[props.dayIndex].dt)+(props.forecastDay.timezone_offset))*1000} />
