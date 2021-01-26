@@ -86,6 +86,18 @@ export default function Today(props) {
       )
     }
   } else {
+    let forecastData = {
+    date: props.forecastDay.daily[props.dayIndex].dt,
+    temp: props.forecastDay.daily[props.dayIndex].temp.day,
+    low: props.forecastDay.daily[props.dayIndex].temp.min,
+    high: props.forecastDay.daily[props.dayIndex].temp.max,
+    feels: props.forecastDay.daily[props.dayIndex].feels_like.day,
+    humidity: props.forecastDay.daily[props.dayIndex].humidity,
+    wind: props.forecastDay.daily[props.dayIndex].wind_speed,
+    icon: props.forecastDay.daily[props.dayIndex].weather[0].icon,
+    description: props.forecastDay.daily[props.dayIndex].weather[0].description,
+    time: (props.forecastDay.daily[props.dayIndex].dt+props.forecastDay.timezone_offset)*1000
+  }
     if (props.unit==="celcius") {
     return(
       <div>
@@ -96,16 +108,16 @@ export default function Today(props) {
             </h1>
           </div>
           <div className="row ml-2">
-            <h2 className="text-capitalize">{props.forecastDay.daily[props.dayIndex].weather[0].description}</h2>
+            <h2 className="text-capitalize">{forecastData.description}</h2>
           </div>
           <div className="row ml-2">
             <div className="col-3 large-icon-container">
-              <WeatherIcon code={props.forecastDay.daily[props.dayIndex].weather[0].icon} alt={props.forecastDay.daily[props.dayIndex].weather[0].description} />
+              <WeatherIcon code={forecastData.icon} alt={forecastData.description} />
             </div>
           <div className="col-5 info">
-           <FormatDate date={new Date((props.forecastDay.daily[props.dayIndex].dt +props.forecastDay.timezone_offset) *1000 )} />
-            <p className="temp-today">{Math.round(props.forecastDay.daily[props.dayIndex].temp.day)}°</p>
-            <p>low <span className="temp-high-low-today"> {Math.round(props.forecastDay.daily[props.dayIndex].temp.min)}° / {Math.round(props.forecastDay.daily[props.dayIndex].temp.max)}°</span> high</p>
+           <FormatDate date={new Date(forecastData.time)} />
+            <p className="temp-today">{Math.round(forecastData.temp)}°</p>
+            <p>low <span className="temp-high-low-today"> {Math.round(forecastData.low)}° / {Math.round(forecastData.high)}°</span> high</p>
           </div>
           <div className="col-4 pr-3 percentages">
             <p>
@@ -113,17 +125,17 @@ export default function Today(props) {
               |
               <a href="/" id="fahrenheit" onClick={convertToF}>°F</a>
             </p>
-            <p>Feels like:  {Math.round(props.forecastDay.daily[props.dayIndex].feels_like.day)}° </p>
-            <p>Humidity: {props.forecastDay.daily[props.dayIndex].humidity}%</p>
-            <p>Wind speed: {props.forecastDay.daily[props.dayIndex].wind_speed} m/s</p>
+            <p>Feels like:  {Math.round(forecastData.feels)}° </p>
+            <p>Humidity: {forecastData.humidity}%</p>
+            <p>Wind speed: {forecastData.wind} m/s</p>
           </div>
         </div>
         </div>
       </div>
     )
     } else {
-      return (
-       <div>
+      return(
+      <div>
         <div className="Today">
           <div className="row ml-2">
             <h1>
@@ -131,44 +143,46 @@ export default function Today(props) {
             </h1>
           </div>
           <div className="row ml-2">
-            <h2 className="text-capitalize">{props.forecastDay.daily[props.dayIndex].weather[0].description}</h2>
+            <h2 className="text-capitalize">{forecastData.description}</h2>
           </div>
           <div className="row ml-2">
             <div className="col-3 large-icon-container">
-              <WeatherIcon code={props.forecastDay.daily[props.dayIndex].weather[0].icon} alt={props.forecastDay.daily[props.dayIndex].weather[0].description} />
+              <WeatherIcon code={forecastData.icon} alt={forecastData.description} />
             </div>
           <div className="col-5 info">
-           <FormatDate date={new Date((props.forecastDay.daily[props.dayIndex].dt +props.forecastDay.timezone_offset) *1000 )} />
-            <p className="temp-today">{fahrenheit(Math.round(props.forecastDay.daily[props.dayIndex].temp.day))}°</p>
-            <p>low <span className="temp-high-low-today"> {fahrenheit(Math.round(props.forecastDay.daily[props.dayIndex].temp.min))}° / {fahrenheit(Math.round(props.forecastDay.daily[props.dayIndex].temp.max))}°</span> high</p>
+           <FormatDate date={new Date(forecastData.time)} />
+            <p className="temp-today">{fahrenheit(forecastData.temp)}°</p>
+            <p>low <span className="temp-high-low-today"> {fahrenheit(forecastData.low)}° / {fahrenheit(forecastData.high)}°</span> high</p>
           </div>
           <div className="col-4 pr-3 percentages">
-             <p>
+            <p>
               <a href="/" id="celcius" onClick={convertToC}>°C</a>{" "}
               |
               °F
             </p>
-            <p>Feels like:  {fahrenheit(Math.round(props.forecastDay.daily[props.dayIndex].feels_like.day))}° </p>
-            <p>Humidity: {props.forecastDay.daily[props.dayIndex].humidity}%</p>
-            <p>Wind speed: {props.forecastDay.daily[props.dayIndex].wind_speed} m/s</p>
+            <p>Feels like:  {fahrenheit(forecastData.feels)}° </p>
+            <p>Humidity: {forecastData.humidity}%</p>
+            <p>Wind speed: {forecastData.wind} m/s</p>
           </div>
         </div>
         </div>
       </div>
-      )
+    )
     }
 }
 }
-/* <FormatDate date={((props.forecastDay.daily[props.dayIndex].dt)+(props.forecastDay.timezone_offset))*1000} />
-date: {props.forecastDay.daily[props.dayIndex].dt}
-          temp: {props.forecastDay.daily[props.dayIndex].temp.day}
-          low: {props.forecastDay.daily[props.dayIndex].temp.min}
-          high: {props.forecastDay.daily[props.dayIndex].temp.max}
-          feels: {props.forecastDay.daily[props.dayIndex].feels_like.day}
-          humidity: {props.forecastDay.daily[props.dayIndex].humidity}
-          wind: {props.forecastDay.daily[props.dayIndex].wind_speed}
-          icon: {props.forecastDay.daily[props.dayIndex].weather[0].icon}
-          description: {props.forecastDay.daily[props.dayIndex].weather[0].description}
-          time: {(props.forecastDay.daily[props.dayIndex].dt+props.forecastDay.timezone_offset)*1000}
+/*
+let forecastData = { 
+    date: props.forecastDay.daily[props.dayIndex].dt,
+    temp: props.forecastDay.daily[props.dayIndex].temp.day,
+    low: props.forecastDay.daily[props.dayIndex].temp.min,
+    high: props.forecastDay.daily[props.dayIndex].temp.max,
+    feels: props.forecastDay.daily[props.dayIndex].feels_like.day,
+    humidity: props.forecastDay.daily[props.dayIndex].humidity,
+    wind: props.forecastDay.daily[props.dayIndex].wind_speed,
+    icon: props.forecastDay.daily[props.dayIndex].weather[0].icon,
+    description: props.forecastDay.daily[props.dayIndex].weather[0].description,
+    time: (props.forecastDay.daily[props.dayIndex].dt+props.forecastDay.timezone_offset)*1000
+  }
           */
           
